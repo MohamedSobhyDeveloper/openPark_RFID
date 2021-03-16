@@ -1,33 +1,33 @@
 package com.openpark.Rfid.views
 
 import android.content.res.Configuration
-import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.WindowManager
-import androidx.annotation.RequiresApi
 import androidx.viewbinding.ViewBinding
 import com.interactive.ksi.propertyturkeybooking.utlitites.PrefsUtil
-import com.openpark.Rfid.R
 import com.openpark.Rfid.databinding.ActivityBaseBinding
 import java.lang.reflect.ParameterizedType
 import java.util.*
 
- open class BaseActivity<VB : ViewBinding> : AppCompatActivity() {
+abstract class BaseActivity<VB : ViewBinding> : AppCompatActivity() {
     protected val binding by lazy { initBinding() }
+    private val baseBinding by lazy { ActivityBaseBinding.inflate(layoutInflater) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        window.setFlags(
-            WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS,
-            WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS
-        )
+        setContent()
         Log.e("CurrentScreen", this.javaClass.simpleName)
         window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN)
         setuplanguages()
 
+    }
+
+    private fun setContent() {
+        baseBinding.flContainer.addView(binding.root)
+        setContentView(baseBinding.root)
     }
 
 

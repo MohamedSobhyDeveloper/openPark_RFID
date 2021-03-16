@@ -1,11 +1,12 @@
-package com.openpark.Rfid
+package com.openpark.Rfid.views
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.openpark.Rfid.R
 
-class MainActivity : AppCompatActivity() {
+class AddVisitorActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_add_visitor)
     }
 }

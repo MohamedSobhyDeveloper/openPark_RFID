@@ -1,5 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">openPark</string>
-    <string name="check_connections">Check Internet Connections</string>
+    <string name="check_connections">تاكد من اتصالك بالانترنت</string>
+    <string name="login">تسجيل الدخول</string>
+    <string name="password">الرقم السرى</string>
+    <string name="user_name">اسم المستخدم</string>
+    <string name="rotate">180</string>
+    <string name="register_new_visitor">اضافة زائر جديد</string>
+    <string name="search_by_mobile_number">البحث برقم الهاتف</string>
+    <string name="charge_wallet">شحن المحفظة</string>
+    <string name="language">اللغة</string>
+    <string name="signout">تسجيل الخروج</string>
+    <string name="choose_language">اختر اللغة</string>
+    <string name="english">english</string>
+    <string name="arabic">عربى</string>
+    <string name="cancel">الغاء</string>
+    <string name="want_logout_from_app">هل تريد تسجيل الخروج من التطبيق ؟</string>
+    <string name="yes">نعم</string>
+    <string name="no">لا</string>
+    <string name="charge">شحن المحفظة</string>
+    <string name="read_card_number">قراءة رقم الكارت</string>
+    <string name="enter_amount">ادخل المبلغ</string>
+    <string name="submit">شحن</string>
+    <string name="enter_phone_number">ادخل رقم الهاتف</string>
+    <string name="or">او</string>
 </resources>

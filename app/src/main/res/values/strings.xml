@@ -1,4 +1,26 @@
 <resources>
     <string name="app_name">openPark</string>
     <string name="check_connections">Check Internet Connections</string>
+    <string name="login">Login</string>
+    <string name="password">password</string>
+    <string name="user_name">user name</string>
+    <string name="rotate">0</string>
+    <string name="register_new_visitor">Register new visitor</string>
+    <string name="search_by_mobile_number">Search by Mobile number</string>
+    <string name="charge_wallet">Charge Wallet</string>
+    <string name="language">Language</string>
+    <string name="signout">SignOut</string>
+    <string name="choose_language">Choose language</string>
+    <string name="english">English</string>
+    <string name="arabic">Arabic</string>
+    <string name="cancel">Cancel</string>
+    <string name="want_logout_from_app">Are you sure to log out from app?</string>
+    <string name="yes">yes</string>
+    <string name="no">No</string>
+    <string name="charge">Chrage Wallet</string>
+    <string name="read_card_number">Read Card Number</string>
+    <string name="enter_amount">Enter Amount</string>
+    <string name="submit">Charge</string>
+    <string name="enter_phone_number">Enter Phone Number</string>
+    <string name="or">Or</string>
 </resources>
