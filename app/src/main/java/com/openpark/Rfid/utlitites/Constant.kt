@@ -32,6 +32,7 @@ class Constant {
         var Currancy = "http://api.propertyturkey.com/api/v1/currency?api_key=" + apiValue
 
         var pk="pk"
+        var state="status"
 
         fun getInstance(context: Context?): Constant? {
             Companion.context = context

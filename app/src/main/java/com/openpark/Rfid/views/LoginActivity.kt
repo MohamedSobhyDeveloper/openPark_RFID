@@ -27,11 +27,17 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>() {
     private fun initialize() {
         viewModelApp = ViewModelProvider(this).get(ViewModelApp::class.java)
         viewModelApp!!.loginLivedata.observe(this) {
-
             PrefsUtil.with(this).add(Constant.pk,it.pk).apply()
-            startActivity(Intent(this, MainActivity::class.java))
-            finish()
-            Toast.makeText(this,"تم تسجيل الدخول بنجاح",Toast.LENGTH_SHORT).show()
+
+            if(it.pk.equals("-1")){
+                Toast.makeText(this,getString(R.string.invalid_username_password),Toast.LENGTH_SHORT).show()
+
+            }else{
+                startActivity(Intent(this, MainActivity::class.java))
+                finish()
+                Toast.makeText(this,getString(R.string.login),Toast.LENGTH_SHORT).show()
+            }
+
 
         }
 
@@ -41,9 +47,9 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>() {
         binding.loginbtn.setOnClickListener {
             username=binding.username.text.toString()
             password=binding.password.text.toString()
-            if(username.equals("")){
+            if(username == ""){
                 binding.username.error = getString(R.string.user_name)
-            }else if(password.equals("")){
+            }else if(password == ""){
                 binding.password.error = getString(R.string.password)
             }else{
                 makelogin(username,password)
@@ -58,8 +64,8 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>() {
 
     private fun makelogin(username: String, password: String) {
         val map = HashMap<String, String?>()
-        map.put("username",username)
-        map.put("password",password)
+        map["username"] = username
+        map["password"] = password
         viewModelApp!!.makeLogin(this, map)
     }
 }

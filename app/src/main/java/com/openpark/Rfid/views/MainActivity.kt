@@ -30,6 +30,11 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
             startActivity(intent)
         }
 
+        binding.newVisitorBtn.setOnClickListener {
+            val intent = Intent(this, AddVisitorActivity::class.java)
+            startActivity(intent)
+        }
+
         binding.languageBtn.setOnClickListener {
             dialog?.show()
         }

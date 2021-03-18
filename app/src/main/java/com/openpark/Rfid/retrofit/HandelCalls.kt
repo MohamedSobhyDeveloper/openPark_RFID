@@ -41,6 +41,9 @@ class HandelCalls {
             val username = meMap!!["username"]
             val password = meMap!!["password"]
             callRetrofit(restRetrofit!!.getClientService().login(username,password), flag, ShowLoadingDialog)
+        }else if(flag==DataEnum.newVisitor.name){
+            callRetrofit(restRetrofit!!.getClientService().addNewVisitor(meMap), flag, ShowLoadingDialog)
+
         }
 //        else if (flag==DataEnum.scan.name){
 //            val tank_id = meMap!!["tankid"]
