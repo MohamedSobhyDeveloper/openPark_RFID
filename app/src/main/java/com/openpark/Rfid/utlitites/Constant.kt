@@ -31,6 +31,7 @@ class Constant {
         @JvmField
         var Currancy = "http://api.propertyturkey.com/api/v1/currency?api_key=" + apiValue
 
+        var pk="pk"
 
         fun getInstance(context: Context?): Constant? {
             Companion.context = context

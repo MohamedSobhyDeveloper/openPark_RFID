@@ -4,6 +4,7 @@ import android.content.Context
 import android.util.Log
 import com.interactive.ksi.propertyturkeybooking.interfaces.HandleRetrofitResp
 import com.interactive.ksi.propertyturkeybooking.interfaces.HandleRetrofitRespAdapter
+import com.interactive.ksi.propertyturkeybooking.utlitites.DataEnum
 import com.interactive.ksi.propertyturkeybooking.utlitites.HelpMe
 import com.quekitapp.gasloyalty.utlitites.Loading
 import com.sdsmdg.tastytoast.TastyToast
@@ -36,11 +37,12 @@ class HandelCalls {
     fun call(flag: String, meMap: HashMap<String, String?>?, ShowLoadingDialog: Boolean, onRespnseSucess: HandleRetrofitResp) {
         onRespnse = onRespnseSucess
 
-//        if (flag==DataEnum.login.name){
-//            val username = meMap!!["username"]
-//            val password = meMap!!["password"]
-//            callRetrofit(restRetrofit!!.getClientService().login(username,password), flag, ShowLoadingDialog)
-//        }else if (flag==DataEnum.scan.name){
+        if (flag== DataEnum.login.name){
+            val username = meMap!!["username"]
+            val password = meMap!!["password"]
+            callRetrofit(restRetrofit!!.getClientService().login(username,password), flag, ShowLoadingDialog)
+        }
+//        else if (flag==DataEnum.scan.name){
 //            val tank_id = meMap!!["tankid"]
 //            callRetrofit(restRetrofit!!.getClientService().scan(tank_id), flag, ShowLoadingDialog)
 //        }else if (flag==DataEnum.charge.name){
