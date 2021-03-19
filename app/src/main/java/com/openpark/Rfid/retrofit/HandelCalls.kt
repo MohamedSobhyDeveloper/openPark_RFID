@@ -6,6 +6,8 @@ import com.interactive.ksi.propertyturkeybooking.interfaces.HandleRetrofitResp
 import com.interactive.ksi.propertyturkeybooking.interfaces.HandleRetrofitRespAdapter
 import com.interactive.ksi.propertyturkeybooking.utlitites.DataEnum
 import com.interactive.ksi.propertyturkeybooking.utlitites.HelpMe
+import com.openpark.Rfid.views.models.ModelChargeWithFrid
+import com.openpark.Rfid.views.models.ModelChargeWithPhone
 import com.quekitapp.gasloyalty.utlitites.Loading
 import com.sdsmdg.tastytoast.TastyToast
 import org.json.JSONException
@@ -43,6 +45,16 @@ class HandelCalls {
             callRetrofit(restRetrofit!!.getClientService().login(username,password), flag, ShowLoadingDialog)
         }else if(flag==DataEnum.newVisitor.name){
             callRetrofit(restRetrofit!!.getClientService().addNewVisitor(meMap), flag, ShowLoadingDialog)
+
+        }else if(flag==DataEnum.searchPhone.name){
+            val searchPhone = meMap!!["mobile_no"]
+            callRetrofit(restRetrofit!!.getClientService().searchByPhone(searchPhone), flag, ShowLoadingDialog)
+
+        }else if(flag==DataEnum.chargePhone.name){
+            callRetrofit(restRetrofit!!.getClientService().chargeWallerWithPhone(meMap), flag, ShowLoadingDialog)
+
+        }else if(flag==DataEnum.chargefrid.name){
+            callRetrofit(restRetrofit!!.getClientService().chargeWallerWithFrid(meMap), flag, ShowLoadingDialog)
 
         }
 //        else if (flag==DataEnum.scan.name){

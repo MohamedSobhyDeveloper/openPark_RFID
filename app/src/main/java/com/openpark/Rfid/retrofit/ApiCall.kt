@@ -1,7 +1,6 @@
 package com.quekitapp.gasloyalty.retrofit
 
-import com.openpark.Rfid.views.models.ModelLogin
-import com.openpark.Rfid.views.models.ModelNewVisitor
+import com.openpark.Rfid.views.models.*
 import retrofit2.Call
 import retrofit2.http.*
 import java.util.HashMap
@@ -15,7 +14,18 @@ interface ApiCall {
     @FormUrlEncoded
     @POST("User/NewUser.php")
     fun addNewVisitor(@FieldMap map: HashMap<String, String?>?): Call<ModelNewVisitor?>?
-//
+
+    @GET("User/SearchByMobile.php")
+    fun searchByPhone(@Query("mobile_no") mobile_no: String?): Call<ModelSearchPhone?>?
+
+    @FormUrlEncoded
+    @POST("User/ChargeWallet_mobile.php")
+    fun chargeWallerWithPhone(@FieldMap map: HashMap<String, String?>?): Call<ModelChargeWithPhone?>?
+
+    @FormUrlEncoded
+    @POST("User/ChargeWallet_mobile.php")
+    fun chargeWallerWithFrid(@FieldMap map: HashMap<String, String?>?): Call<ModelChargeWithFrid?>?
+
 //    @GET("Member/ScanTank.php")
 //    fun scan(@Query("tank_id") tank_id: String?): Call<ScanModel?>?
 //

@@ -29,6 +29,10 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
             val intent = Intent(this, ChargeWalletActivity::class.java)
             startActivity(intent)
         }
+        binding.searchbyMobileno.setOnClickListener {
+            val intent = Intent(this, SearchMobileActivity::class.java)
+            startActivity(intent)
+        }
 
         binding.newVisitorBtn.setOnClickListener {
             val intent = Intent(this, AddVisitorActivity::class.java)
