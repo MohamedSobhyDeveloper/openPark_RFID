@@ -15,6 +15,7 @@ class ChargeWalletActivity : BaseActivity<ActivityChargeWalletBinding>() {
     private var viewModelApp : ViewModelApp? = null
     private var phone=""
     private var amount=""
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -25,21 +26,19 @@ class ChargeWalletActivity : BaseActivity<ActivityChargeWalletBinding>() {
     private fun click() {
 
         binding.txtChargeCardNumber.setOnClickListener {
-            binding.cardNumber.visibility=View.VISIBLE
+
+                   visiblecard()
         }
 
         binding.txtChargePhone.setOnClickListener {
-            binding.phoneNumber.visibility=View.VISIBLE
-            binding.amount.visibility=View.VISIBLE
+           visiblePhone()
         }
         binding.btnChargeFrid.setOnClickListener {
-            amount=binding.amount.text.toString()
+            amount=binding.amountFrid.text.toString()
             if(amount==""){
-                binding.amount.error=getString(R.string.enter_ammount)
-
+                binding.amountFrid.error=getString(R.string.enter_ammount)
             }else{
                 chargeWalletFrid("56423344544",amount)
-
             }
 
         }
@@ -55,6 +54,25 @@ class ChargeWalletActivity : BaseActivity<ActivityChargeWalletBinding>() {
             }
 
         }
+    }
+
+    private fun visiblePhone() {
+        binding.phoneNumber.visibility=View.VISIBLE
+        binding.amount.visibility=View.VISIBLE
+        binding.txtChargeCardNumber.visibility=View.GONE
+        binding.or.visibility=View.GONE
+        binding.btnChargePhone.visibility=View.VISIBLE
+        binding.txtChargePhone.visibility=View.GONE
+
+    }
+
+    private fun visiblecard() {
+        binding.cardNumber.visibility=View.VISIBLE
+        binding.btnChargeFrid.visibility=View.VISIBLE
+        binding.amountFrid.visibility=View.VISIBLE
+        binding.or.visibility=View.GONE
+        binding.txtChargePhone.visibility=View.GONE
+        binding.txtChargeCardNumber.visibility=View.GONE
     }
 
     private fun chargeWalletFrid(s: String, amount: String) {

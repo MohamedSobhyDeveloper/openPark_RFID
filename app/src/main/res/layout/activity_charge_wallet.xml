@@ -178,6 +178,27 @@
         android:background="@drawable/roundedbuttonprimary"
         android:padding="5dp"
         />
+    <EditText
+        android:id="@+id/amount_Frid"
+        android:layout_width="match_parent"
+        android:hint="@string/enter_amount"
+        android:layout_height="50dp"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:visibility="gone"
+        android:inputType="number|numberDecimal"
+        android:textAlignment="viewStart"
+        app:layout_constraintTop_toBottomOf="@+id/cardNumber"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="20dp"
+        tools:ignore="Autofill,RtlCompat"
+        android:gravity="center"
+        android:background="@drawable/roundedbuttonprimary"
+        android:padding="5dp"
+        />
 
 
 
