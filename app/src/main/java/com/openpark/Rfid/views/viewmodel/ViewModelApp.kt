@@ -20,28 +20,28 @@ class ViewModelApp :ViewModel(), HandleRetrofitResp {
 
     fun makeLogin(context: Context, meMap: HashMap<String, String?>?){
 
-        HandelCalls.getInstance(context)?.call(DataEnum.login.name, meMap, true, this)
+        HandelCalls.getInstance(context)?.call(DataEnum.login.name, meMap, null,true, this)
 
     }
 
     fun addNewVisitor(context: Context, meMap: HashMap<String, String?>?){
 
-        HandelCalls.getInstance(context)?.call(DataEnum.newVisitor.name, meMap, true, this)
+        HandelCalls.getInstance(context)?.call(DataEnum.newVisitor.name, meMap,null, true, this)
 
     }
     fun makeSearchPhone(context: Context, meMap: HashMap<String, String?>?){
 
-        HandelCalls.getInstance(context)?.call(DataEnum.searchPhone.name, meMap, true, this)
+        HandelCalls.getInstance(context)?.call(DataEnum.searchPhone.name, meMap,null, true, this)
 
     }
-    fun chargeByPhone(context: Context, meMap: HashMap<String, String?>?){
+    fun chargeByPhone(context: Context, model: ModelSendWallet){
 
-        HandelCalls.getInstance(context)?.call(DataEnum.chargePhone.name, meMap, true, this)
+        HandelCalls.getInstance(context)?.call(DataEnum.chargePhone.name,null, model, true, this)
 
     }
     fun chargeByFrid(context: Context, meMap: HashMap<String, String?>?){
 
-        HandelCalls.getInstance(context)?.call(DataEnum.chargefrid.name, meMap, true, this)
+        HandelCalls.getInstance(context)?.call(DataEnum.chargefrid.name, meMap,null, true, this)
 
     }
 

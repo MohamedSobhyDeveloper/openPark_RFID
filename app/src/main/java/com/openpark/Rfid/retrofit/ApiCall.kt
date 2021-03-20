@@ -24,7 +24,7 @@ interface ApiCall {
 
     @FormUrlEncoded
     @POST("User/ChargeWallet_mobile.php")
-    fun chargeWallerWithFrid(@FieldMap map: HashMap<String, String?>?): Call<ModelChargeWithFrid?>?
+    fun chargeWallerWithFrid(@Body requestBody: ModelSendWallet?): Call<ModelChargeWithFrid?>?
 
 //    @GET("Member/ScanTank.php")
 //    fun scan(@Query("tank_id") tank_id: String?): Call<ScanModel?>?

@@ -6,8 +6,7 @@ import com.interactive.ksi.propertyturkeybooking.interfaces.HandleRetrofitResp
 import com.interactive.ksi.propertyturkeybooking.interfaces.HandleRetrofitRespAdapter
 import com.interactive.ksi.propertyturkeybooking.utlitites.DataEnum
 import com.interactive.ksi.propertyturkeybooking.utlitites.HelpMe
-import com.openpark.Rfid.views.models.ModelChargeWithFrid
-import com.openpark.Rfid.views.models.ModelChargeWithPhone
+import com.openpark.Rfid.views.models.ModelSendWallet
 import com.quekitapp.gasloyalty.utlitites.Loading
 import com.sdsmdg.tastytoast.TastyToast
 import org.json.JSONException
@@ -36,7 +35,7 @@ class HandelCalls {
         this.onRespnseAdapter = onRespnseAdapter
     }
 
-    fun call(flag: String, meMap: HashMap<String, String?>?, ShowLoadingDialog: Boolean, onRespnseSucess: HandleRetrofitResp) {
+    fun call(flag: String, meMap: HashMap<String, String?>?, model: ModelSendWallet?, ShowLoadingDialog: Boolean, onRespnseSucess: HandleRetrofitResp) {
         onRespnse = onRespnseSucess
 
         if (flag== DataEnum.login.name){
@@ -54,7 +53,7 @@ class HandelCalls {
             callRetrofit(restRetrofit!!.getClientService().chargeWallerWithPhone(meMap), flag, ShowLoadingDialog)
 
         }else if(flag==DataEnum.chargefrid.name){
-            callRetrofit(restRetrofit!!.getClientService().chargeWallerWithFrid(meMap), flag, ShowLoadingDialog)
+            callRetrofit(restRetrofit!!.getClientService().chargeWallerWithFrid(model), flag, ShowLoadingDialog)
 
         }
 //        else if (flag==DataEnum.scan.name){
