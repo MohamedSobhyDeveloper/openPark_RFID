@@ -9,6 +9,7 @@ import androidx.lifecycle.observe
 import com.openpark.Rfid.R
 import com.openpark.Rfid.databinding.ActivityChargeWalletBinding
 import com.openpark.Rfid.views.models.ModelSendWallet
+import com.openpark.Rfid.views.models.ModelSendWalletFrid
 import com.openpark.Rfid.views.viewmodel.ViewModelApp
 import java.util.HashMap
 
@@ -79,8 +80,9 @@ class ChargeWalletActivity : BaseActivity<ActivityChargeWalletBinding>() {
     private fun chargeWalletFrid(s: String, amount: String) {
         val map = HashMap<String, String?>()
         map["tag_id"] = s
-        map["balance"] = amount
-        viewModelApp!!.chargeByFrid(this, map)
+        map["tag_id"] = amount
+        val model=ModelSendWalletFrid(phone,amount)
+        viewModelApp!!.chargeByFrid(this, model)
     }
 
     private fun chargeWallet(phone: String, amount: String) {

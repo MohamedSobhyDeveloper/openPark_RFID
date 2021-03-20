@@ -9,6 +9,8 @@ import com.interactive.ksi.propertyturkeybooking.utlitites.Constant
 import com.interactive.ksi.propertyturkeybooking.utlitites.PrefsUtil
 import com.openpark.Rfid.R
 import com.openpark.Rfid.databinding.ActivityAddVisitorBinding
+import com.openpark.Rfid.views.models.ModelAddVisitor
+import com.openpark.Rfid.views.models.ModelSendWalletFrid
 import com.openpark.Rfid.views.viewmodel.ViewModelApp
 import java.util.HashMap
 
@@ -53,7 +55,8 @@ class AddVisitorActivity : BaseActivity<ActivityAddVisitorBinding>() {
         map["tag_id"] = s
         map["ssn"] = ssn
         map["driver_license"] = drivingLicence
-        viewModelApp!!.addNewVisitor(this, map)
+        val model= ModelAddVisitor(username,phone,s,ssn,drivingLicence)
+        viewModelApp!!.addNewVisitor(this, model)
     }
 
     private fun assimentVariable() {

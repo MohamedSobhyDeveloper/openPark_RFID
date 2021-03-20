@@ -6,7 +6,46 @@
     android:layout_height="match_parent"
     tools:context=".views.SearchMobileActivity">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:orientation="horizontal"
+        android:id="@+id/toolbar"
+        android:layout_marginTop="5dp"
+        tools:ignore="UseCompoundDrawables">
 
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/baseline_keyboard_backspace_black_18"
+            android:id="@+id/backBtn"
+            android:padding="10dp"
+            android:rotation="@string/rotate"
+            android:layout_gravity="center"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/search"
+            android:id="@+id/title"
+            android:textSize="20sp"
+            android:layout_gravity="center"
+            android:textColor="@color/black"
+            />
+
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/purple_200"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        android:layout_marginTop="5dp"
+        android:id="@+id/viewone"
+        />
     <EditText
         android:id="@+id/phoneNumber"
         android:layout_width="match_parent"
@@ -15,7 +54,7 @@
         android:textColor="@color/black"
         android:textSize="15sp"
         android:inputType="number"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/viewone"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginStart="5dp"
@@ -47,10 +86,10 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:id="@+id/lin_data"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="40dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
         android:gravity="center"
         android:visibility="gone"
         android:background="@drawable/roundedbuttonprimary"
@@ -66,6 +105,7 @@
             android:textColor="@color/black"
             android:textSize="20sp"
             android:layout_marginStart="7dp"
+            android:layout_marginEnd="5dp"
             android:layout_marginBottom="10dp"
             />
 
@@ -77,6 +117,7 @@
             android:textColor="@color/black"
             android:textSize="20sp"
             android:layout_marginStart="7dp"
+            android:layout_marginEnd="5dp"
             android:layout_marginBottom="10dp"
             />
 
@@ -88,6 +129,7 @@
             android:textColor="@color/black"
             android:textSize="20sp"
             android:layout_marginStart="7dp"
+            android:layout_marginEnd="5dp"
             android:layout_marginBottom="10dp"
             />
 
@@ -99,6 +141,7 @@
             android:textColor="@color/black"
             android:textSize="20sp"
             android:layout_marginStart="7dp"
+            android:layout_marginEnd="5dp"
             android:layout_marginBottom="100dp"
             />
 

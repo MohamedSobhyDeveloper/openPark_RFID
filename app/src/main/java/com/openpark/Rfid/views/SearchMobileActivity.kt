@@ -1,6 +1,7 @@
 package com.openpark.Rfid.views
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.text.Editable
 import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.observe
@@ -17,8 +18,26 @@ class SearchMobileActivity :  BaseActivity<ActivitySearchMobileBinding>() {
 
         initialize()
         click()
+        txt_watcher()
     }
+    private fun txt_watcher() {
+        binding.phoneNumber.addTextChangedListener(object : android.text.TextWatcher {
+            override fun afterTextChanged(s: Editable?) {
 
+            }
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                s?.let {
+                    if(s.length==11) {
+                        makeSearch(s.toString())
+                    }
+                }
+            }
+        })
+    }
     private fun click() {
 
         binding.btnSearch.setOnClickListener {
@@ -48,6 +67,7 @@ class SearchMobileActivity :  BaseActivity<ActivitySearchMobileBinding>() {
             if(it.pk.equals("-1")){
 
                 binding.txtNotFound.visibility=View.VISIBLE
+                binding.linData.visibility=View.GONE
 
             }else if(it.name!=null){
                 binding.name.text="Name: " + it.name
@@ -57,6 +77,7 @@ class SearchMobileActivity :  BaseActivity<ActivitySearchMobileBinding>() {
                 binding.linData.visibility=View.VISIBLE
             }else{
                 binding.txtNotFound.visibility=View.VISIBLE
+                binding.linData.visibility=View.GONE
             }
 
 

@@ -8,23 +8,20 @@ import java.util.HashMap
 
 interface ApiCall {
 
-    @GET("User/login.php")
+    @POST("User/login.php")
     fun login(@Query("username") username: String?, @Query("password") password: String?): Call<ModelLogin?>?
 
-    @FormUrlEncoded
     @POST("User/NewUser.php")
-    fun addNewVisitor(@FieldMap map: HashMap<String, String?>?): Call<ModelNewVisitor?>?
+    fun addNewVisitor(@Body requestBody: ModelAddVisitor?): Call<ModelNewVisitor?>?
 
-    @GET("User/SearchByMobile.php")
+    @POST("User/SearchByMobile.php")
     fun searchByPhone(@Query("mobile_no") mobile_no: String?): Call<ModelSearchPhone?>?
 
-    @FormUrlEncoded
     @POST("User/ChargeWallet_mobile.php")
-    fun chargeWallerWithPhone(@FieldMap map: HashMap<String, String?>?): Call<ModelChargeWithPhone?>?
+    fun chargeWallerWithPhone(@Body requestBody: ModelSendWallet?): Call<ModelChargeWithPhone?>?
 
-    @FormUrlEncoded
     @POST("User/ChargeWallet_mobile.php")
-    fun chargeWallerWithFrid(@Body requestBody: ModelSendWallet?): Call<ModelChargeWithFrid?>?
+    fun chargeWallerWithFrid(@Body requestBody: ModelSendWalletFrid?): Call<ModelChargeWithFrid?>?
 
 //    @GET("Member/ScanTank.php")
 //    fun scan(@Query("tank_id") tank_id: String?): Call<ScanModel?>?

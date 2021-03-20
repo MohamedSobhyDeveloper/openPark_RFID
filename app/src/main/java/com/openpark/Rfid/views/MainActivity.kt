@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.TextView
 import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.interactive.ksi.propertyturkeybooking.utlitites.Constant
 import com.interactive.ksi.propertyturkeybooking.utlitites.PrefsUtil
 import com.openpark.Rfid.R
 import com.openpark.Rfid.databinding.ActivityMainBinding
@@ -47,7 +48,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
             val alert = AlertDialog.Builder(this)
             alert.setMessage(getString(R.string.want_logout_from_app))
                     .setPositiveButton(getString(R.string.yes)) { dialog, which ->
-                        PrefsUtil.with(this).add("id", "-1").apply()
+                        PrefsUtil.with(this).add(Constant.pk, "-1").apply()
                         val intent =
                                 Intent(this, SplashActivity::class.java)
                         startActivity(intent)

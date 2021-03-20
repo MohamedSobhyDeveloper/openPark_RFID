@@ -6,7 +6,9 @@ import com.interactive.ksi.propertyturkeybooking.interfaces.HandleRetrofitResp
 import com.interactive.ksi.propertyturkeybooking.interfaces.HandleRetrofitRespAdapter
 import com.interactive.ksi.propertyturkeybooking.utlitites.DataEnum
 import com.interactive.ksi.propertyturkeybooking.utlitites.HelpMe
+import com.openpark.Rfid.views.models.ModelAddVisitor
 import com.openpark.Rfid.views.models.ModelSendWallet
+import com.openpark.Rfid.views.models.ModelSendWalletFrid
 import com.quekitapp.gasloyalty.utlitites.Loading
 import com.sdsmdg.tastytoast.TastyToast
 import org.json.JSONException
@@ -35,7 +37,7 @@ class HandelCalls {
         this.onRespnseAdapter = onRespnseAdapter
     }
 
-    fun call(flag: String, meMap: HashMap<String, String?>?, model: ModelSendWallet?, ShowLoadingDialog: Boolean, onRespnseSucess: HandleRetrofitResp) {
+    fun call(flag: String, meMap: HashMap<String, String?>?, model: ModelSendWallet?,modelfrid: ModelSendWalletFrid?,modelAddVisitor: ModelAddVisitor?, ShowLoadingDialog: Boolean, onRespnseSucess: HandleRetrofitResp) {
         onRespnse = onRespnseSucess
 
         if (flag== DataEnum.login.name){
@@ -43,17 +45,18 @@ class HandelCalls {
             val password = meMap!!["password"]
             callRetrofit(restRetrofit!!.getClientService().login(username,password), flag, ShowLoadingDialog)
         }else if(flag==DataEnum.newVisitor.name){
-            callRetrofit(restRetrofit!!.getClientService().addNewVisitor(meMap), flag, ShowLoadingDialog)
+            callRetrofit(restRetrofit!!.getClientService().addNewVisitor(modelAddVisitor), flag, ShowLoadingDialog)
 
         }else if(flag==DataEnum.searchPhone.name){
             val searchPhone = meMap!!["mobile_no"]
             callRetrofit(restRetrofit!!.getClientService().searchByPhone(searchPhone), flag, ShowLoadingDialog)
 
         }else if(flag==DataEnum.chargePhone.name){
-            callRetrofit(restRetrofit!!.getClientService().chargeWallerWithPhone(meMap), flag, ShowLoadingDialog)
+
+            callRetrofit(restRetrofit!!.getClientService().chargeWallerWithPhone(model), flag, ShowLoadingDialog)
 
         }else if(flag==DataEnum.chargefrid.name){
-            callRetrofit(restRetrofit!!.getClientService().chargeWallerWithFrid(model), flag, ShowLoadingDialog)
+            callRetrofit(restRetrofit!!.getClientService().chargeWallerWithFrid(modelfrid), flag, ShowLoadingDialog)
 
         }
 //        else if (flag==DataEnum.scan.name){
