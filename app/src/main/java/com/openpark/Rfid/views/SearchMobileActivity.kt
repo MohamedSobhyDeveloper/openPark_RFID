@@ -1,5 +1,6 @@
 package com.openpark.Rfid.views
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.view.View
@@ -18,7 +19,7 @@ class SearchMobileActivity :  BaseActivity<ActivitySearchMobileBinding>() {
 
         initialize()
         click()
-        txt_watcher()
+       // txt_watcher()
     }
     private fun txt_watcher() {
         binding.phoneNumber.addTextChangedListener(object : android.text.TextWatcher {
@@ -48,8 +49,16 @@ class SearchMobileActivity :  BaseActivity<ActivitySearchMobileBinding>() {
                 makeSearch(search)
             }
         }
+        binding.btnAddCard.setOnClickListener {
+            val intent = Intent(this, AddCardActivity::class.java)
+            intent.putExtra("phone",search)
+            startActivity(intent)
+            finish()
+        }
 
-
+        binding.backBtn.setOnClickListener {
+           finish()
+        }
     }
 
     private fun makeSearch(search: String) {
@@ -68,18 +77,17 @@ class SearchMobileActivity :  BaseActivity<ActivitySearchMobileBinding>() {
 
                 binding.txtNotFound.visibility=View.VISIBLE
                 binding.linData.visibility=View.GONE
+                binding.btnAddCard.visibility=View.GONE
 
-            }else if(it.name!=null){
+            }else {
                 binding.name.text="Name: " + it.name
                 binding.ssn.text="SSN: " + it.ssn
                 binding.driveLicence.text="driveLicence: " + it.driver_license
                 binding.balance.text="balance: " + it.balance
                 binding.linData.visibility=View.VISIBLE
-            }else{
-                binding.txtNotFound.visibility=View.VISIBLE
-                binding.linData.visibility=View.GONE
+                binding.txtNotFound.visibility=View.GONE
+                binding.btnAddCard.visibility=View.VISIBLE
             }
-
 
         }
 

@@ -56,6 +56,9 @@ class ChargeWalletActivity : BaseActivity<ActivityChargeWalletBinding>() {
             }
 
         }
+        binding.backBtn.setOnClickListener {
+            finish()
+        }
     }
 
     private fun visiblePhone() {

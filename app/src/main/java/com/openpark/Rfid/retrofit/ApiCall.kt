@@ -23,6 +23,9 @@ interface ApiCall {
     @POST("User/ChargeWallet_mobile.php")
     fun chargeWallerWithFrid(@Body requestBody: ModelSendWalletFrid?): Call<ModelChargeWithFrid?>?
 
+    @POST("User/LinkRFIDCard.php")
+    fun linkFridCard(@Body requestBody: ModelLinkFrid?): Call<ModelNewCardFrid?>?
+
 //    @GET("Member/ScanTank.php")
 //    fun scan(@Query("tank_id") tank_id: String?): Call<ScanModel?>?
 //

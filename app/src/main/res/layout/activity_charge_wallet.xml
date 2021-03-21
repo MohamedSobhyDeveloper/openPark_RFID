@@ -79,7 +79,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/logo"
         tools:ignore="Autofill,RtlCompat" />
-    <TextView
+    <Button
         android:id="@+id/txt_charge_cardNumber"
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -91,8 +91,8 @@
         android:background="@drawable/roundedbuttonprimary"
         android:text="@string/charge_by_cardnumber"
         android:padding="5dp"
-        android:textAlignment="viewStart"
-        android:textColor="@color/black"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -103,6 +103,7 @@
         android:id="@+id/or"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:text="@string/or"
@@ -117,19 +118,20 @@
         app:layout_constraintTop_toBottomOf="@+id/txt_charge_cardNumber"
         tools:ignore="Autofill,RtlCompat" />
 
-    <TextView
+    <Button
         android:id="@+id/txt_charge_phone"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
+        android:layout_marginTop="5dp"
         android:visibility="visible"
         android:gravity="center"
         android:text="@string/charge_by_phone"
         android:background="@drawable/roundedbuttonprimary"
         android:padding="5dp"
-        android:textAlignment="viewStart"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
+        android:textAllCaps="false"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

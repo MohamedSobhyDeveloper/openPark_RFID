@@ -45,7 +45,9 @@ class AddVisitorActivity : BaseActivity<ActivityAddVisitorBinding>() {
                 addNewVisitor(username,phone,"454578787",ssn,drivingLicence)
             }
         }
-
+        binding.backBtn.setOnClickListener {
+            finish()
+        }
     }
 
     private fun addNewVisitor(username: String, phone: String, s: String, ssn: String, drivingLicence: String) {

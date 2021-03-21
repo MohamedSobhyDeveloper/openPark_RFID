@@ -12,7 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.OpenPark"
         android:usesCleartextTraffic="true">
-        <activity android:name=".views.ChargeWalletActivity"></activity>
+        <activity android:name=".views.AddCardActivity"></activity>
+        <activity android:name=".views.ChargeWalletActivity" />
         <activity android:name=".views.SearchMobileActivity" />
         <activity android:name=".views.AddVisitorActivity" />
         <activity android:name=".views.LoginActivity" />

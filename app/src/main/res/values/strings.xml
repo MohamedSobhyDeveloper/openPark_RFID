@@ -37,4 +37,8 @@
     <string name="cant_charge">Can\'t Charge this Wallet</string>
     <string name="charge_by_cardnumber">Charge by CardNumber</string>
     <string name="charge_by_phone">Charge by Phone</string>
+    <string name="add_card">Add Card</string>
+    <string name="user_not_found">User Not Found.</string>
+    <string name="cant_add_card_new">Can\'t Add New Card</string>
+    <string name="added_sucess">Card Added Successfully</string>
 </resources>

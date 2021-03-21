@@ -72,7 +72,7 @@
         android:id="@+id/txt_not_found"
         android:gravity="center"
         android:visibility="gone"
-        android:text="User Not Found."
+        android:text="@string/user_not_found"
         android:textColor="@color/black"
         android:textSize="20sp"
         app:layout_constraintTop_toBottomOf="@+id/phoneNumber"
@@ -94,7 +94,7 @@
         android:visibility="gone"
         android:background="@drawable/roundedbuttonprimary"
         app:layout_constraintTop_toBottomOf="@+id/phoneNumber"
-        app:layout_constraintBottom_toTopOf="@+id/btn_search"
+        app:layout_constraintBottom_toTopOf="@+id/btn_addCard"
         android:orientation="vertical"
         >
         <TextView
@@ -149,22 +149,32 @@
     </LinearLayout>
 
 
-    <Button
+    <ImageView
         android:id="@+id/btn_search"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:layout_constraintBottom_toBottomOf="@+id/phoneNumber"
+        app:layout_constraintTop_toTopOf="@+id/phoneNumber"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="10dp"
+        android:elevation="10dp"
+        android:padding="5dp"
+        android:src="@drawable/baseline_search_black_18"
+        app:tint="@color/black" />
+
+    <Button
+        android:id="@+id/btn_addCard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:background="@drawable/roundedbuttonblue"
-        android:text="@string/search"
-        android:textAllCaps="false"
-        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginStart="5dp"
-        android:layout_marginEnd="5dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginStart="15dp"
         android:layout_marginBottom="10dp"
+        android:text="@string/add_card"
+        android:visibility="gone"
+        android:textAllCaps="false"
+        android:textSize="15sp"
         />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

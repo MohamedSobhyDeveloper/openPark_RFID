@@ -7,6 +7,7 @@ import com.interactive.ksi.propertyturkeybooking.interfaces.HandleRetrofitRespAd
 import com.interactive.ksi.propertyturkeybooking.utlitites.DataEnum
 import com.interactive.ksi.propertyturkeybooking.utlitites.HelpMe
 import com.openpark.Rfid.views.models.ModelAddVisitor
+import com.openpark.Rfid.views.models.ModelLinkFrid
 import com.openpark.Rfid.views.models.ModelSendWallet
 import com.openpark.Rfid.views.models.ModelSendWalletFrid
 import com.quekitapp.gasloyalty.utlitites.Loading
@@ -37,7 +38,7 @@ class HandelCalls {
         this.onRespnseAdapter = onRespnseAdapter
     }
 
-    fun call(flag: String, meMap: HashMap<String, String?>?, model: ModelSendWallet?,modelfrid: ModelSendWalletFrid?,modelAddVisitor: ModelAddVisitor?, ShowLoadingDialog: Boolean, onRespnseSucess: HandleRetrofitResp) {
+    fun call(flag: String, meMap: HashMap<String, String?>?, model: ModelSendWallet?,modelfrid: ModelSendWalletFrid?,modelAddVisitor: ModelAddVisitor?,modelLinkFrid: ModelLinkFrid?, ShowLoadingDialog: Boolean, onRespnseSucess: HandleRetrofitResp) {
         onRespnse = onRespnseSucess
 
         if (flag== DataEnum.login.name){
@@ -57,6 +58,9 @@ class HandelCalls {
 
         }else if(flag==DataEnum.chargefrid.name){
             callRetrofit(restRetrofit!!.getClientService().chargeWallerWithFrid(modelfrid), flag, ShowLoadingDialog)
+
+        }else if(flag==DataEnum.linkFrid.name){
+            callRetrofit(restRetrofit!!.getClientService().linkFridCard(modelLinkFrid), flag, ShowLoadingDialog)
 
         }
 //        else if (flag==DataEnum.scan.name){

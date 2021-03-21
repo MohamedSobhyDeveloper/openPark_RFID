@@ -24,7 +24,7 @@
     <string name="submit">شحن</string>
     <string name="enter_phone_number">ادخل رقم الهاتف</string>
     <string name="or">او</string>
-    <string name="invalid_username_password">Invalid username and password</string>
+    <string name="invalid_username_password">خطأ في البريد الالكتروني او الرقم السري</string>
     <string name="add_new_visitor">ضافه زائر جديد</string>
     <string name="enter_ssn_number">ادخل الرقم القومي</string>
     <string name="enter_car_number">ادخل رقم السياره</string>
@@ -32,10 +32,14 @@
     <string name="enter_ssn">ادخل الرقم القومي</string>
     <string name="search_by_phone">بحث برقم الهاتف</string>
     <string name="search">بحث</string>
-    <string name="user_notFound">المستخد غير موجود</string>
+    <string name="user_notFound">المستخدم غير موجود</string>
     <string name="enter_ammount">ادخل الامونت</string>
     <string name="success">تم شحن المحفظه بنجاح</string>
     <string name="cant_charge">لا يمكنك شحن تلك المحفظه</string>
     <string name="charge_by_cardnumber">الشحن برقم الكارت</string>
     <string name="charge_by_phone">الشحن برقم الهاتف</string>
+    <string name="add_card">اضف كارت</string>
+    <string name="user_not_found">المستخدم غير موجود</string>
+    <string name="cant_add_card_new">لا يمكن اضافه كارت جديد</string>
+    <string name="added_sucess">تم اضافه الكارت بنجاح</string>
 </resources>
