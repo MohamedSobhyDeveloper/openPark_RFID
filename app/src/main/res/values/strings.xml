@@ -41,4 +41,10 @@
     <string name="user_not_found">User Not Found.</string>
     <string name="cant_add_card_new">Can\'t Add New Card</string>
     <string name="added_sucess">Card Added Successfully</string>
+    <string name="enter_card_number">Read Card Number</string>
+    <string name="name">Name: </string>
+    <string name="ssn">SSN: </string>
+    <string name="driver_licence">driveLicence: </string>
+    <string name="balance">balance: </string>
+    <string name="cant_read_card">Cant read card</string>
 </resources>

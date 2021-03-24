@@ -15,6 +15,7 @@
         android:orientation="horizontal"
         android:id="@+id/toolbar"
         android:layout_marginTop="5dp"
+        android:padding="5dp"
         tools:ignore="UseCompoundDrawables">
 
         <ImageView
@@ -27,15 +28,38 @@
             android:layout_gravity="center"
             tools:ignore="ContentDescription" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/search"
-            android:id="@+id/title"
-            android:textSize="20sp"
-            android:layout_gravity="center"
+        <EditText
+            android:id="@+id/phoneNumber"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:hint="@string/search_by_phone"
+            android:layout_height="50dp"
             android:textColor="@color/black"
-            />
+            android:textSize="15sp"
+            android:inputType="phone"
+            app:layout_constraintTop_toBottomOf="@+id/viewone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:textAlignment="viewStart"
+            android:background="@drawable/roundedbuttonprimary"
+            android:padding="10dp"
+            android:layout_gravity="center"
+            tools:ignore="Autofill,RtlCompat,TextFields"
+            android:gravity="center" />
+
+        <ImageView
+            android:id="@+id/btn_search"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="10dp"
+            android:padding="5dp"
+            android:layout_gravity="center"
+            android:src="@drawable/baseline_search_black_18"
+            app:tint="@color/black"
+            tools:ignore="ContentDescription" />
 
     </LinearLayout>
     <View
@@ -46,25 +70,7 @@
         android:layout_marginTop="5dp"
         android:id="@+id/viewone"
         />
-    <EditText
-        android:id="@+id/phoneNumber"
-        android:layout_width="match_parent"
-        android:hint="@string/search_by_phone"
-        android:layout_height="50dp"
-        android:textColor="@color/black"
-        android:textSize="15sp"
-        android:inputType="number"
-        app:layout_constraintTop_toBottomOf="@+id/viewone"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginStart="5dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginTop="10dp"
-        android:textAlignment="viewStart"
-        android:background="@drawable/roundedbuttonprimary"
-        android:padding="5dp"
-        tools:ignore="Autofill,RtlCompat"
-        android:gravity="center" />
+
 
     <TextView
         android:layout_width="wrap_content"
@@ -75,8 +81,8 @@
         android:text="@string/user_not_found"
         android:textColor="@color/black"
         android:textSize="20sp"
-        app:layout_constraintTop_toBottomOf="@+id/phoneNumber"
-        app:layout_constraintBottom_toTopOf="@+id/btn_search"
+        app:layout_constraintTop_toBottomOf="@+id/viewone"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:orientation="vertical"
@@ -91,12 +97,21 @@
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
         android:gravity="center"
-        android:visibility="gone"
+        android:visibility="visible"
         android:background="@drawable/roundedbuttonprimary"
-        app:layout_constraintTop_toBottomOf="@+id/phoneNumber"
-        app:layout_constraintBottom_toTopOf="@+id/btn_addCard"
+        app:layout_constraintTop_toBottomOf="@+id/viewone"
         android:orientation="vertical"
         >
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:src="@drawable/manager"
+            android:layout_marginTop="15dp"
+            android:id="@+id/logo"
+            app:layout_constraintTop_toBottomOf="@+id/viewone"
+            tools:ignore="ContentDescription" />
+
         <TextView
             android:id="@+id/name"
             android:layout_width="match_parent"
@@ -106,6 +121,7 @@
             android:textSize="20sp"
             android:layout_marginStart="7dp"
             android:layout_marginEnd="5dp"
+            android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             />
 
@@ -113,12 +129,12 @@
             android:id="@+id/ssn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text=""
             android:textColor="@color/black"
             android:textSize="20sp"
             android:layout_marginStart="7dp"
             android:layout_marginEnd="5dp"
             android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
             />
 
         <TextView
@@ -131,6 +147,7 @@
             android:layout_marginStart="7dp"
             android:layout_marginEnd="5dp"
             android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
             />
 
         <TextView
@@ -143,38 +160,30 @@
             android:layout_marginStart="7dp"
             android:layout_marginEnd="5dp"
             android:layout_marginBottom="100dp"
+            android:layout_marginTop="10dp"
+            />
+
+        <Button
+            android:id="@+id/btn_addCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="15dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginBottom="10dp"
+            android:text="@string/add_card"
+            android:textAllCaps="false"
+            android:visibility="gone"
+            android:textSize="15sp"
             />
 
 
     </LinearLayout>
 
 
-    <ImageView
-        android:id="@+id/btn_search"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        app:layout_constraintBottom_toBottomOf="@+id/phoneNumber"
-        app:layout_constraintTop_toTopOf="@+id/phoneNumber"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginEnd="10dp"
-        android:elevation="10dp"
-        android:padding="5dp"
-        android:src="@drawable/baseline_search_black_18"
-        app:tint="@color/black" />
 
-    <Button
-        android:id="@+id/btn_addCard"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginEnd="15dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginBottom="10dp"
-        android:text="@string/add_card"
-        android:visibility="gone"
-        android:textAllCaps="false"
-        android:textSize="15sp"
-        />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

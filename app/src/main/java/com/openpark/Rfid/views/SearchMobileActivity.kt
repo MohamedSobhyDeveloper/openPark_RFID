@@ -43,7 +43,7 @@ class SearchMobileActivity :  BaseActivity<ActivitySearchMobileBinding>() {
 
         binding.btnSearch.setOnClickListener {
             search=binding.phoneNumber.text.toString()
-            if(search == ""){
+            if(search == "" || search.length<10){
                 binding.phoneNumber.error=getString(R.string.enter_phone_number)
             }else{
                 makeSearch(search)
@@ -73,20 +73,22 @@ class SearchMobileActivity :  BaseActivity<ActivitySearchMobileBinding>() {
         viewModelApp = ViewModelProvider(this).get(ViewModelApp::class.java)
         viewModelApp!!.searchphoneLivedata.observe(this) {
 
-            if(it.pk.equals("-1")){
+            if(it.pk == "-1"){
 
                 binding.txtNotFound.visibility=View.VISIBLE
                 binding.linData.visibility=View.GONE
                 binding.btnAddCard.visibility=View.GONE
 
             }else {
-                binding.name.text="Name: " + it.name
-                binding.ssn.text="SSN: " + it.ssn
-                binding.driveLicence.text="driveLicence: " + it.driver_license
-                binding.balance.text="balance: " + it.balance
-                binding.linData.visibility=View.VISIBLE
                 binding.txtNotFound.visibility=View.GONE
+                binding.linData.visibility=View.VISIBLE
                 binding.btnAddCard.visibility=View.VISIBLE
+
+                binding.name.text=getString(R.string.name) +" "+ it.name
+                binding.ssn.text=getString(R.string.ssn) +" "+ it.ssn
+                binding.driveLicence.text=getString(R.string.driver_licence) +" "+ it.driver_license
+                binding.balance.text=getString(R.string.balance) +" "+it.balance
+
             }
 
         }

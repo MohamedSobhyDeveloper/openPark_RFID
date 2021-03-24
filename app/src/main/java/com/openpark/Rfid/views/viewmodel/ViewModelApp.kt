@@ -40,9 +40,9 @@ class ViewModelApp :ViewModel(), HandleRetrofitResp {
         HandelCalls.getInstance(context)?.call(DataEnum.chargePhone.name,null, model, null,null,null,true, this)
 
     }
-    fun chargeByFrid(context: Context, model: ModelSendWalletFrid){
+    fun chargeByFrid(context: Context, model: ModelSendWallet){
 
-        HandelCalls.getInstance(context)?.call(DataEnum.chargefrid.name, null,null,model,null,null, true, this)
+        HandelCalls.getInstance(context)?.call(DataEnum.chargefrid.name, null,model,null,null,null, true, this)
 
     }
 

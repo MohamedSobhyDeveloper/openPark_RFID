@@ -109,12 +109,12 @@
         android:text="@string/or"
         android:visibility="visible"
         android:padding="5dp"
-        android:textColor="@color/black"
+        android:textColor="@color/purple_500"
         android:textStyle="bold"
         android:textSize="17sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
+
         app:layout_constraintTop_toBottomOf="@+id/txt_charge_cardNumber"
         tools:ignore="Autofill,RtlCompat" />
 
