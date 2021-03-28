@@ -26,7 +26,7 @@
     <string name="invalid_username_password">Invalid username and password</string>
     <string name="add_new_visitor">Add New Visitor</string>
     <string name="enter_ssn_number">Enter SSN number</string>
-    <string name="enter_car_number">Enter Car Number</string>
+    <string name="enter_car_number">Enter driving license</string>
     <string name="add">Add</string>
     <string name="enter_ssn">Enter SSN Number</string>
     <string name="search_by_phone">Search by phone</string>
@@ -47,4 +47,8 @@
     <string name="driver_licence">driveLicence: </string>
     <string name="balance">balance: </string>
     <string name="cant_read_card">Cant read card</string>
+    <string name="cant_add_visitor">Can\'t add new visitor</string>
+    <string name="visitor_added_sucess">New Visitor added Successfully</string>
+    <string name="reports">Reports</string>
+    <string name="plate_number">Plate Number</string>
 </resources>

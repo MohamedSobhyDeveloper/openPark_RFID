@@ -20,7 +20,7 @@ interface ApiCall {
     @POST("User/ChargeWallet_mobile.php")
     fun chargeWallerWithPhone(@Body requestBody: ModelSendWallet?): Call<ModelChargeWithPhone?>?
 
-    @POST("User/ChargeWallet_mobile.php")
+    @POST("User/ChargeWallet_RFID.php")
     fun chargeWallerWithFrid(@Body requestBody: ModelSendWalletFrid?): Call<ModelChargeWithFrid?>?
 
     @POST("User/LinkRFIDCard.php")

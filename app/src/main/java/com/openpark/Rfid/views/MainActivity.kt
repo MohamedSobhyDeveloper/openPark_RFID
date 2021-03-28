@@ -39,7 +39,10 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
             val intent = Intent(this, AddVisitorActivity::class.java)
             startActivity(intent)
         }
-
+        binding.reportBtn.setOnClickListener {
+            val intent = Intent(this, ReportsActivity::class.java)
+            startActivity(intent)
+        }
         binding.languageBtn.setOnClickListener {
             dialog?.show()
         }

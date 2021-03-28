@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">openPark</string>
+    <string name="app_name">OpenPark</string>
     <string name="check_connections">تاكد من اتصالك بالانترنت</string>
     <string name="login">تسجيل الدخول</string>
     <string name="password">الرقم السرى</string>
@@ -27,7 +27,7 @@
     <string name="invalid_username_password">خطأ في البريد الالكتروني او الرقم السري</string>
     <string name="add_new_visitor">اضافه زائر جديد</string>
     <string name="enter_ssn_number">ادخل الرقم القومي</string>
-    <string name="enter_car_number">ادخل رقم السياره</string>
+    <string name="enter_car_number">ادخل رخصة القيادة</string>
     <string name="add">اضف</string>
     <string name="enter_ssn">ادخل الرقم القومي</string>
     <string name="search_by_phone">بحث برقم الهاتف</string>
@@ -48,4 +48,8 @@
     <string name="driver_licence">رخصة القيادة: </string>
     <string name="balance">الرصيد: </string>
     <string name="cant_read_card">لم يتم قراءة الكارت</string>
+    <string name="cant_add_visitor">لا يمكن إضافة زائر جديد</string>
+    <string name="visitor_added_sucess">تمت إضافة الزائر الجديد بنجاح</string>
+    <string name="reports">تقارير</string>
+    <string name="plate_number">رقم اللوحة</string>
 </resources>

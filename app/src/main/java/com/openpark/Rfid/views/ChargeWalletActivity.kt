@@ -103,7 +103,7 @@ class ChargeWalletActivity : BaseActivity<ActivityChargeWalletBinding>() {
     private fun chargeWalletRfid(cardNumber: String, amount: String) {
         val map = HashMap<String, String?>()
         map["tag_id"] = cardNumber
-        map["tag_id"] = amount
+        map["balance"] = amount
         val model=ModelSendWallet("",cardNumber,amount)
         viewModelApp!!.chargeByFrid(this, model)
     }

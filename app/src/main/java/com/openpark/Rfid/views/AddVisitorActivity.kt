@@ -55,7 +55,7 @@ class AddVisitorActivity : BaseActivity<ActivityAddVisitorBinding>() {
             }else if(cardNumber == ""){
                 Toast.makeText(this, getString(R.string.enter_card_number), Toast.LENGTH_SHORT).show()
 
-            }else if(ssn == ""){
+            }else if(ssn == ""||ssn.length<14){
                 binding.ssn.error=getString(R.string.enter_ssn)
             }else if(drivingLicence == ""){
                 binding.driveLicence.error=getString(R.string.enter_car_number)
@@ -108,10 +108,10 @@ class AddVisitorActivity : BaseActivity<ActivityAddVisitorBinding>() {
         viewModelApp!!.newVisitorLivedata.observe(this) {
 
             if(it.status == "-1"){
-                Toast.makeText(this,"Can't add new visitor", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this,getString(R.string.cant_add_visitor), Toast.LENGTH_SHORT).show()
 
             }else{
-                Toast.makeText(this,"New Visitor added Successfully", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this,getString(R.string.visitor_added_sucess), Toast.LENGTH_SHORT).show()
                 finish()
             }
 

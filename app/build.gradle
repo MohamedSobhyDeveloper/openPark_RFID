@@ -63,5 +63,6 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.2.0'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
     implementation 'com.google.guava:guava:23.3-android'
+    implementation 'com.justkiddingbaby:vercodeedittext:1.1.0'
 
 }
