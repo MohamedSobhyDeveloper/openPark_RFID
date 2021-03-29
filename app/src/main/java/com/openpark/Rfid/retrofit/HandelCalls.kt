@@ -62,6 +62,10 @@ class HandelCalls {
         }else if(flag==DataEnum.linkFrid.name){
             callRetrofit(restRetrofit!!.getClientService().linkFridCard(modelLinkFrid), flag, ShowLoadingDialog)
 
+        }else if(flag==DataEnum.getReports.name){
+            val user_id = meMap!!["user_id"]
+            callRetrofit(restRetrofit!!.getClientService().getWalletReports(user_id), flag, ShowLoadingDialog)
+
         }
 //        else if (flag==DataEnum.scan.name){
 //            val tank_id = meMap!!["tankid"]

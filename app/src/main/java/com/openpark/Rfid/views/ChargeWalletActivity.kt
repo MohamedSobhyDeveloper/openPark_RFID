@@ -21,7 +21,6 @@ import com.openpark.Rfid.databinding.ActivityChargeWalletBinding
 import com.openpark.Rfid.readcard.NdefMessageParser
 import com.openpark.Rfid.readcard.ParsedNdefRecord
 import com.openpark.Rfid.views.models.ModelSendWallet
-import com.openpark.Rfid.views.models.ModelSendWalletFrid
 import com.openpark.Rfid.views.viewmodel.ViewModelApp
 import okhttp3.internal.and
 import java.util.HashMap

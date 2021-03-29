@@ -17,6 +17,13 @@ interface ApiCall {
     @POST("User/SearchByMobile.php")
     fun searchByPhone(@Query("mobile_no") mobile_no: String?): Call<ModelSearchPhone?>?
 
+    @POST("User/SearchByRFID.php")
+    fun searchByRfid(@Query("tag_id") tag_id: String?): Call<ModelSearchPhone?>?
+
+    @POST("User/WalletActivity.php")
+    fun getWalletReports(@Query("user_id") user_id: String?): Call<ModelReports?>?
+
+
     @POST("User/ChargeWallet_mobile.php")
     fun chargeWallerWithPhone(@Body requestBody: ModelSendWallet?): Call<ModelChargeWithPhone?>?
 

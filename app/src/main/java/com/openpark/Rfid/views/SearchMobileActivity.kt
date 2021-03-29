@@ -78,16 +78,28 @@ class SearchMobileActivity :  BaseActivity<ActivitySearchMobileBinding>() {
                 binding.txtNotFound.visibility=View.VISIBLE
                 binding.linData.visibility=View.GONE
                 binding.btnAddCard.visibility=View.GONE
+                binding.titleplate.visibility=View.GONE
+                binding.layoutCar.visibility=View.GONE
 
             }else {
                 binding.txtNotFound.visibility=View.GONE
                 binding.linData.visibility=View.VISIBLE
                 binding.btnAddCard.visibility=View.VISIBLE
+                binding.titleplate.visibility=View.VISIBLE
+                binding.layoutCar.visibility=View.VISIBLE
 
                 binding.name.text=getString(R.string.name) +" "+ it.name
                 binding.ssn.text=getString(R.string.ssn) +" "+ it.ssn
                 binding.driveLicence.text=getString(R.string.driver_licence) +" "+ it.driver_license
                 binding.balance.text=getString(R.string.balance) +" "+it.balance
+                binding.c1.text=it.chr1
+                binding.c2.text=it.chr2
+                binding.c3.text=it.chr3
+                binding.n1.text=it.num1
+                binding.n2.text=it.num2
+                binding.n3.text=it.num3
+                binding.n4.text=it.num4
+
 
             }
 

@@ -22,17 +22,23 @@ import com.openpark.Rfid.readcard.ParsedNdefRecord
 import com.openpark.Rfid.views.models.ModelAddVisitor
 import com.openpark.Rfid.views.viewmodel.ViewModelApp
 import okhttp3.internal.and
-import java.util.*
 
 class AddVisitorActivity : BaseActivity<ActivityAddVisitorBinding>() {
     private var viewModelApp : ViewModelApp? = null
 
     private var username=""
     private var phone=""
-    private var tagNumber=""
     private var ssn=""
     private var drivingLicence=""
+    private var carNumber=""
     private var cardNumber=""
+    private var c1=""
+    private var c2=""
+    private var c3=""
+    private var n1=""
+    private var n2=""
+    private var n3=""
+    private var n4=""
 
     //
     var nfcAdapter: NfcAdapter? = null
@@ -46,7 +52,6 @@ class AddVisitorActivity : BaseActivity<ActivityAddVisitorBinding>() {
 
     private fun click() {
         binding.btnAdd.setOnClickListener {
-
             assimentVariable()
             if(username == ""){
                 binding.username.error=getString(R.string.user_name)
@@ -59,8 +64,10 @@ class AddVisitorActivity : BaseActivity<ActivityAddVisitorBinding>() {
                 binding.ssn.error=getString(R.string.enter_ssn)
             }else if(drivingLicence == ""){
                 binding.driveLicence.error=getString(R.string.enter_car_number)
+            }else if(carNumber == ""){
+                binding.c1.error=getString(R.string.enter_plate_num)
             }else{
-                addNewVisitor(username,phone,cardNumber,ssn,drivingLicence)
+                addNewVisitor(username,phone,cardNumber,ssn,drivingLicence,c1,c2,c3,n1,n2,n3,n4)
             }
         }
         binding.backBtn.setOnClickListener {
@@ -68,24 +75,42 @@ class AddVisitorActivity : BaseActivity<ActivityAddVisitorBinding>() {
         }
     }
 
-    private fun addNewVisitor(username: String, phone: String, s: String, ssn: String, drivingLicence: String) {
-        val map = HashMap<String, String?>()
-        map["username"] = username
-        map["phone"] = phone
-        map["tag_id"] = s
-        map["ssn"] = ssn
-        map["driver_license"] = drivingLicence
-        val model= ModelAddVisitor(username,phone,s,ssn,drivingLicence)
+    private fun addNewVisitor(
+        username: String,
+        phone: String,
+        cardNumber: String,
+        ssn: String,
+        drivingLicence: String,
+        c1: String,
+        c2: String,
+        c3: String,
+        n1: String,
+        n2: String,
+        n3: String,
+        n4: String
+    ) {
+
+        val model= ModelAddVisitor(username,phone,c1,c2,c3,drivingLicence,n1,n2,n3,n4,ssn,cardNumber)
         viewModelApp!!.addNewVisitor(this, model)
     }
 
     private fun assimentVariable() {
         username=binding.username.text.toString()
         phone=binding.phoneNumber.text.toString()
-        tagNumber=binding.cardNumber.text.toString()
         ssn=binding.ssn.text.toString()
         drivingLicence=binding.driveLicence.text.toString()
         cardNumber=binding.cardNumber.text.toString()
+        c1=binding.c1.text.toString()
+        c2=binding.c2.text.toString()
+        c3=binding.c3.text.toString()
+        n1=binding.n1.text.toString()
+        n2=binding.n2.text.toString()
+        n3=binding.n3.text.toString()
+        n4=binding.n4.text.toString()
+
+        carNumber=binding.n4.text.toString()+" "+binding.n3.text.toString()+" "+binding.n2.text.toString()+" "+binding.n1.text.toString()+
+                binding.c3.text.toString()+" "+binding.c2.text.toString()+" "+binding.c1.text.toString()
+
     }
 
     private fun initialize() {

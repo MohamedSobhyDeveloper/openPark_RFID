@@ -5,5 +5,5 @@ package com.interactive.ksi.propertyturkeybooking.utlitites
  */
 enum class DataEnum {
     AuthToken, shFirebaseToken, shversionName,login,scan,plateno,charge,verify,newVisitor,
-    searchPhone,chargePhone,chargefrid,linkFrid
+    searchPhone,chargePhone,chargefrid,linkFrid,getReports
 }

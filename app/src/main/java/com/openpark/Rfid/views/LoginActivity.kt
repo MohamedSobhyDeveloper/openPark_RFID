@@ -33,6 +33,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>() {
                 Toast.makeText(this,getString(R.string.invalid_username_password),Toast.LENGTH_SHORT).show()
 
             }else{
+                PrefsUtil.with(this).add("pk",it.pk).apply()
                 startActivity(Intent(this, MainActivity::class.java))
                 finish()
                 Toast.makeText(this,getString(R.string.login),Toast.LENGTH_SHORT).show()

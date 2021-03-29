@@ -17,6 +17,7 @@ class ViewModelApp :ViewModel(), HandleRetrofitResp {
     var chargeByPhoneLivedata = MutableLiveData<ModelChargeWithPhone>()
     var chargeByFridLivedata = MutableLiveData<ModelChargeWithFrid>()
     var linkFridLivedata = MutableLiveData<ModelNewCardFrid>()
+    var reportslivedata = MutableLiveData<ModelReports>()
 
 
     fun makeLogin(context: Context, meMap: HashMap<String, String?>?){
@@ -52,6 +53,13 @@ class ViewModelApp :ViewModel(), HandleRetrofitResp {
 
     }
 
+
+    fun getReports(context: Context, meMap: HashMap<String, String?>?){
+
+        HandelCalls.getInstance(context)?.call(DataEnum.getReports.name, meMap,null,null,null,null, true, this)
+
+    }
+
     override fun onResponseSuccess(flag: String?, o: Any?) {
         if(flag==DataEnum.login.name){
             val modelLogin: ModelLogin = o as ModelLogin
@@ -73,6 +81,9 @@ class ViewModelApp :ViewModel(), HandleRetrofitResp {
         }else if(flag==DataEnum.linkFrid.name){
             val modelNewCardFrid: ModelNewCardFrid = o as ModelNewCardFrid
             linkFridLivedata.setValue(modelNewCardFrid)
+        }else if(flag==DataEnum.getReports.name){
+            val modelReports: ModelReports = o as ModelReports
+            reportslivedata.setValue(modelReports)
         }
     }
 

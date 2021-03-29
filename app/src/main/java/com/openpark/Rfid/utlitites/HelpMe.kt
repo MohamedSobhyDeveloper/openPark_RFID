@@ -1,6 +1,8 @@
 package com.interactive.ksi.propertyturkeybooking.utlitites
 
+import android.annotation.SuppressLint
 import android.app.Activity
+import android.app.Dialog
 import android.content.Context
 import android.content.pm.PackageManager
 import android.content.res.Configuration
@@ -8,11 +10,15 @@ import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.RectF
 import android.util.Log
+import android.view.View
 import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
+import android.widget.Button
+import android.widget.TextView
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.openpark.Rfid.R
+import com.openpark.Rfid.views.models.ModelSearchPhone
 import com.sdsmdg.tastytoast.TastyToast
 import java.util.*
 
@@ -147,6 +153,35 @@ class HelpMe {
     /*================================================================================*/
 
 
+
+    @SuppressLint("SetTextI18n")
+    fun infoDialog(model:ModelSearchPhone, viewListenerInterface:ViewListenerInterface) {
+        val dialogView = Dialog(context!!)
+        dialogView.setContentView(R.layout.customer_layout_info_dialog)
+        dialogView.setCanceledOnTouchOutside(false)
+        dialogView.setCancelable(false)
+        dialogView.window?.setBackgroundDrawableResource(android.R.color.transparent)
+        val c3 = dialogView.findViewById<Button>(R.id.c3)
+        val c2 = dialogView.findViewById<Button>(R.id.c2)
+        val c1 = dialogView.findViewById<TextView>(R.id.c1)
+        val n4 = dialogView.findViewById<TextView>(R.id.n4)
+        val n3 = dialogView.findViewById<TextView>(R.id.n3)
+        val n2 = dialogView.findViewById<TextView>(R.id.n2)
+        val n1 = dialogView.findViewById<TextView>(R.id.n1)
+        val charge_btn = dialogView.findViewById<Button>(R.id.chargeWalletBtn)
+        val closeBtn = dialogView.findViewById<TextView>(R.id.closeBtn)
+        closeBtn.setOnClickListener { view: View? -> dialogView.dismiss() }
+
+
+        charge_btn.setOnClickListener {
+            dialogView.dismiss()
+            viewListenerInterface.clickView()
+        }
+
+
+
+        dialogView.show()
+    }
 
 
 

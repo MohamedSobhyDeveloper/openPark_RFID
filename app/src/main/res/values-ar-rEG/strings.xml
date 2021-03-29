@@ -43,7 +43,7 @@
     <string name="cant_add_card_new">لا يمكن اضافه كارت جديد</string>
     <string name="added_sucess">تم اضافه الكارت بنجاح</string>
     <string name="enter_card_number">قم بقراءة الكارت</string>
-    <string name="name">الاسم: </string>
+    <string name="name">الاسم : </string>
     <string name="ssn">الرقم القومى: </string>
     <string name="driver_licence">رخصة القيادة: </string>
     <string name="balance">الرصيد: </string>
@@ -52,4 +52,8 @@
     <string name="visitor_added_sucess">تمت إضافة الزائر الجديد بنجاح</string>
     <string name="reports">تقارير</string>
     <string name="plate_number">رقم اللوحة</string>
+    <string name="enter_plate_num">ادخل رقم اللوحة</string>
+    <string name="redeem_wallet">تسوية المحفظة</string>
+    <string name="phone">رقم الهاتف</string>
+    <string name="date">التاريخ</string>
 </resources>
