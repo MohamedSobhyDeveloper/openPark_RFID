@@ -56,4 +56,9 @@
     <string name="redeem_wallet">تسوية المحفظة</string>
     <string name="phone">رقم الهاتف</string>
     <string name="date">التاريخ</string>
+    <string name="bin_code">ادخل الكود</string>
+    <string name="enterpincode">ادخل الكود</string>
+    <string name="invalid_pincode">رقم البطاقة أو الرقم السري غير صالح</string>
+    <string name="cant_redme_wallet">لا يمكن تسوية المحفظة</string>
+    <string name="redmee_wallet_successfully">تم تسوية المحفظة بنجاح</string>
 </resources>

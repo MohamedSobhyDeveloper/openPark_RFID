@@ -68,6 +68,13 @@ class SearchMobileActivity :  BaseActivity<ActivitySearchMobileBinding>() {
         viewModelApp!!.makeSearchPhone(this, map)
     }
 
+    private fun makeSearchRfid(search: String) {
+
+        val map = HashMap<String, String?>()
+        map["tag_id"] = search
+        viewModelApp!!.makeSearchRfid(this, map)
+    }
+
     @SuppressLint("SetTextI18n")
     private fun initialize() {
         viewModelApp = ViewModelProvider(this).get(ViewModelApp::class.java)

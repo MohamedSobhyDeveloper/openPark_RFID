@@ -6,10 +6,7 @@ import com.interactive.ksi.propertyturkeybooking.interfaces.HandleRetrofitResp
 import com.interactive.ksi.propertyturkeybooking.interfaces.HandleRetrofitRespAdapter
 import com.interactive.ksi.propertyturkeybooking.utlitites.DataEnum
 import com.interactive.ksi.propertyturkeybooking.utlitites.HelpMe
-import com.openpark.Rfid.views.models.ModelAddVisitor
-import com.openpark.Rfid.views.models.ModelLinkFrid
-import com.openpark.Rfid.views.models.ModelSendWallet
-import com.openpark.Rfid.views.models.ModelSendWalletFrid
+import com.openpark.Rfid.views.models.*
 import com.quekitapp.gasloyalty.utlitites.Loading
 import com.sdsmdg.tastytoast.TastyToast
 import org.json.JSONException
@@ -52,6 +49,10 @@ class HandelCalls {
             val searchPhone = meMap!!["mobile_no"]
             callRetrofit(restRetrofit!!.getClientService().searchByPhone(searchPhone), flag, ShowLoadingDialog)
 
+        }else if(flag==DataEnum.searchRfid.name){
+            val tag_id = meMap!!["tag_id"]
+            callRetrofit(restRetrofit!!.getClientService().searchByRfid(tag_id), flag, ShowLoadingDialog)
+
         }else if(flag==DataEnum.chargePhone.name){
 
             callRetrofit(restRetrofit!!.getClientService().chargeWallerWithPhone(model), flag, ShowLoadingDialog)
@@ -65,6 +66,18 @@ class HandelCalls {
         }else if(flag==DataEnum.getReports.name){
             val user_id = meMap!!["user_id"]
             callRetrofit(restRetrofit!!.getClientService().getWalletReports(user_id), flag, ShowLoadingDialog)
+
+        }else if(flag==DataEnum.redmeWallet.name){
+            val operator_id = meMap!!["operator_id"]
+            val user_id = meMap!!["user_id"]
+            val model=ModelSendRedmWallet(operator_id!!, user_id!!)
+
+            callRetrofit(restRetrofit!!.getClientService().redmWallet(model), flag, ShowLoadingDialog)
+
+        }else if(flag==DataEnum.loginSuperVisor.name){
+            val tag_id = meMap!!["tag_id"]
+            val password = meMap!!["password"]
+            callRetrofit(restRetrofit!!.getClientService().loginSuperVisor(tag_id,password), flag, ShowLoadingDialog)
 
         }
 //        else if (flag==DataEnum.scan.name){

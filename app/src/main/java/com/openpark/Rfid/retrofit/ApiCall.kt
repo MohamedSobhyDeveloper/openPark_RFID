@@ -23,6 +23,12 @@ interface ApiCall {
     @POST("User/WalletActivity.php")
     fun getWalletReports(@Query("user_id") user_id: String?): Call<ModelReports?>?
 
+    @POST("User/login_supervisor.php")
+    fun loginSuperVisor(@Query("tag_id") tag_id: String?,@Query("password") password: String?): Call<ModelLogin?>?
+
+    @POST("User/RedeemWallet.php")
+    fun redmWallet(@Body requestBody: ModelSendRedmWallet?): Call<ModelRedmeWallet?>?
+
 
     @POST("User/ChargeWallet_mobile.php")
     fun chargeWallerWithPhone(@Body requestBody: ModelSendWallet?): Call<ModelChargeWithPhone?>?

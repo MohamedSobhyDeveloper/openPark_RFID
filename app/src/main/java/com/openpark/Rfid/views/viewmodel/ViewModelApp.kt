@@ -18,6 +18,8 @@ class ViewModelApp :ViewModel(), HandleRetrofitResp {
     var chargeByFridLivedata = MutableLiveData<ModelChargeWithFrid>()
     var linkFridLivedata = MutableLiveData<ModelNewCardFrid>()
     var reportslivedata = MutableLiveData<ModelReports>()
+    var supervisorlivedata = MutableLiveData<ModelLogin>()
+    var redmelivedata = MutableLiveData<ModelRedmeWallet>()
 
 
     fun makeLogin(context: Context, meMap: HashMap<String, String?>?){
@@ -34,6 +36,12 @@ class ViewModelApp :ViewModel(), HandleRetrofitResp {
     fun makeSearchPhone(context: Context, meMap: HashMap<String, String?>?){
 
         HandelCalls.getInstance(context)?.call(DataEnum.searchPhone.name, meMap,null,null,null,null, true, this)
+
+    }
+
+    fun makeSearchRfid(context: Context, meMap: HashMap<String, String?>?){
+
+        HandelCalls.getInstance(context)?.call(DataEnum.searchRfid.name, meMap,null,null,null,null, true, this)
 
     }
     fun chargeByPhone(context: Context, model: ModelSendWallet){
@@ -57,6 +65,18 @@ class ViewModelApp :ViewModel(), HandleRetrofitResp {
     fun getReports(context: Context, meMap: HashMap<String, String?>?){
 
         HandelCalls.getInstance(context)?.call(DataEnum.getReports.name, meMap,null,null,null,null, true, this)
+
+    }
+
+    fun loginSupervisor(context: Context, meMap: HashMap<String, String?>?){
+
+        HandelCalls.getInstance(context)?.call(DataEnum.loginSuperVisor.name, meMap,null,null,null,null, true, this)
+
+    }
+
+    fun redmeWallet(context: Context, meMap: HashMap<String, String?>?){
+
+        HandelCalls.getInstance(context)?.call(DataEnum.redmeWallet.name, meMap,null,null,null,null, true, this)
 
     }
 
@@ -84,6 +104,12 @@ class ViewModelApp :ViewModel(), HandleRetrofitResp {
         }else if(flag==DataEnum.getReports.name){
             val modelReports: ModelReports = o as ModelReports
             reportslivedata.setValue(modelReports)
+        }else if(flag==DataEnum.loginSuperVisor.name){
+            val modelLogin: ModelLogin = o as ModelLogin
+            supervisorlivedata.setValue(modelLogin)
+        }else if(flag==DataEnum.redmeWallet.name){
+            val modelRedmeWallet: ModelRedmeWallet = o as ModelRedmeWallet
+            redmelivedata.setValue(modelRedmeWallet)
         }
     }
 

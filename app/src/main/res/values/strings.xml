@@ -55,4 +55,9 @@
     <string name="redeem_wallet">Redeem wallet</string>
     <string name="phone">Phone</string>
     <string name="date">Date</string>
+    <string name="bin_code">Bin Code</string>
+    <string name="enterpincode">Enter Pin Code</string>
+    <string name="invalid_pincode">Invalid card number or Pin code</string>
+    <string name="cant_redme_wallet">Cant Redeem Wallet</string>
+    <string name="redmee_wallet_successfully">Redeem Wallet Successfully</string>
 </resources>

@@ -54,12 +54,12 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:background="@color/lightgray"
-        app:layout_constraintBottom_toTopOf="@+id/btn_add"
+        app:layout_constraintBottom_toTopOf="@+id/btn_redeem"
         app:layout_constraintTop_toBottomOf="@+id/viewone" />
 
 
     <Button
-        android:id="@+id/btn_add"
+        android:id="@+id/btn_redeem"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
