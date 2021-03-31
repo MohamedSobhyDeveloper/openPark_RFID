@@ -92,6 +92,9 @@ class ViewModelApp :ViewModel(), HandleRetrofitResp {
         }else if(flag==DataEnum.searchPhone.name){
             val modelSearchPhone: ModelSearchPhone = o as ModelSearchPhone
             searchphoneLivedata.setValue(modelSearchPhone)
+        }else if(flag==DataEnum.searchRfid.name){
+            val modelSearchPhone: ModelSearchPhone = o as ModelSearchPhone
+            searchphoneLivedata.setValue(modelSearchPhone)
         }else if(flag==DataEnum.chargePhone.name){
             val modelChargeWithPhone: ModelChargeWithPhone = o as ModelChargeWithPhone
             chargeByPhoneLivedata.setValue(modelChargeWithPhone)

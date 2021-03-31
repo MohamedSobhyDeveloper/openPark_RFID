@@ -161,16 +161,32 @@ class HelpMe {
         dialogView.setCanceledOnTouchOutside(false)
         dialogView.setCancelable(false)
         dialogView.window?.setBackgroundDrawableResource(android.R.color.transparent)
-        val c3 = dialogView.findViewById<Button>(R.id.c3)
-        val c2 = dialogView.findViewById<Button>(R.id.c2)
+        val c3 = dialogView.findViewById<TextView>(R.id.c3)
+        val c2 = dialogView.findViewById<TextView>(R.id.c2)
         val c1 = dialogView.findViewById<TextView>(R.id.c1)
         val n4 = dialogView.findViewById<TextView>(R.id.n4)
         val n3 = dialogView.findViewById<TextView>(R.id.n3)
         val n2 = dialogView.findViewById<TextView>(R.id.n2)
         val n1 = dialogView.findViewById<TextView>(R.id.n1)
+        val name = dialogView.findViewById<TextView>(R.id.name)
+        val ssn = dialogView.findViewById<TextView>(R.id.ssn)
+        val driveLicence = dialogView.findViewById<TextView>(R.id.drive_licence)
+        val balance = dialogView.findViewById<TextView>(R.id.balance)
         val charge_btn = dialogView.findViewById<Button>(R.id.chargeWalletBtn)
         val closeBtn = dialogView.findViewById<TextView>(R.id.closeBtn)
         closeBtn.setOnClickListener { view: View? -> dialogView.dismiss() }
+
+        name.text= context!!.getString(R.string.name) +" "+ model.name
+        ssn.text= context!!.getString(R.string.ssn) +" "+ model.ssn
+        driveLicence.text= context!!.getString(R.string.driver_licence) +" "+ model.driver_license
+        balance.text=context!!.getString(R.string.balance) +" "+model.balance
+        c3.text=model.chr3
+        c2.text=model.chr2
+        c1.text=model.chr1
+        n1.text=model.num1
+        n2.text=model.num2
+        n3.text=model.num3
+        n4.text=model.num4
 
 
         charge_btn.setOnClickListener {
@@ -189,7 +205,6 @@ class HelpMe {
 
     interface ViewListenerInterface {
         fun clickView()
-        fun verifyclickView()
 
     }
 

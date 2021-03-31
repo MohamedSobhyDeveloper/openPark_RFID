@@ -60,4 +60,5 @@
     <string name="invalid_pincode">Invalid card number or Pin code</string>
     <string name="cant_redme_wallet">Cant Redeem Wallet</string>
     <string name="redmee_wallet_successfully">Redeem Wallet Successfully</string>
+    <string name="invalid_phone_number">Invalid Phone Number</string>
 </resources>

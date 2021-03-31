@@ -16,6 +16,8 @@ import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.observe
+import com.interactive.ksi.propertyturkeybooking.utlitites.HelpMe
+import com.interactive.ksi.propertyturkeybooking.utlitites.PrefsUtil
 import com.openpark.Rfid.R
 import com.openpark.Rfid.databinding.ActivityChargeWalletBinding
 import com.openpark.Rfid.readcard.NdefMessageParser
@@ -59,7 +61,10 @@ class ChargeWalletActivity : BaseActivity<ActivityChargeWalletBinding>() {
             }else if(amount==""){
                 binding.amountFrid.error=getString(R.string.enter_ammount)
             }else{
-                chargeWalletRfid(cardNumber,amount)
+                val map = HashMap<String, String?>()
+                map["tag_id"] = phone
+                viewModelApp!!.makeSearchRfid(this, map)
+                //chargeWalletRfid(cardNumber,amount)
             }
 
         }
@@ -71,8 +76,14 @@ class ChargeWalletActivity : BaseActivity<ActivityChargeWalletBinding>() {
             }else if(amount==""){
                 binding.amount.error=getString(R.string.enter_ammount)
             }else{
-                chargeWallet(phone,amount)
+                val map = HashMap<String, String?>()
+                map["mobile_no"] = phone
+                viewModelApp!!.makeSearchPhone(this, map)
+//                chargeWallet(phone,amount)
             }
+
+
+
 
         }
         binding.backBtn.setOnClickListener {
@@ -103,7 +114,7 @@ class ChargeWalletActivity : BaseActivity<ActivityChargeWalletBinding>() {
         val map = HashMap<String, String?>()
         map["tag_id"] = cardNumber
         map["balance"] = amount
-        val model=ModelSendWallet("",cardNumber,amount)
+        val model=ModelSendWallet("",cardNumber,amount, PrefsUtil.with(this).get("pk","")!!)
         viewModelApp!!.chargeByFrid(this, model)
     }
 
@@ -111,7 +122,7 @@ class ChargeWalletActivity : BaseActivity<ActivityChargeWalletBinding>() {
         val map = HashMap<String, String?>()
         map["phone"] = phone
         map["balance"] = amount
-        val model=ModelSendWallet(phone,"",amount)
+        val model=ModelSendWallet(phone,"",amount, PrefsUtil.with(this).get("pk","")!!)
         viewModelApp!!.chargeByPhone(this, model)
     }
 
@@ -132,6 +143,8 @@ class ChargeWalletActivity : BaseActivity<ActivityChargeWalletBinding>() {
 
 
         viewModelApp = ViewModelProvider(this).get(ViewModelApp::class.java)
+
+
         viewModelApp!!.chargeByPhoneLivedata.observe(this) {
 
 
@@ -143,6 +156,29 @@ class ChargeWalletActivity : BaseActivity<ActivityChargeWalletBinding>() {
 
             responseCheck(it.status)
         }
+
+
+        viewModelApp!!.searchphoneLivedata.observe(this) {
+
+            if(it.pk == "-1"){
+
+                Toast.makeText(this,getString(R.string.invalid_phone_number), Toast.LENGTH_SHORT).show()
+
+
+            }else {
+
+                HelpMe.getInstance(this)?.infoDialog(it,object : HelpMe.ViewListenerInterface {
+                    override fun clickView() {
+                        chargeWallet(phone,amount)
+                    }
+
+
+                })
+
+            }
+
+        }
+
     }
 
     private fun responseCheck(status: String) {

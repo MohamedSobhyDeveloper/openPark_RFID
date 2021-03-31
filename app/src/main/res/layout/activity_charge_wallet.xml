@@ -69,7 +69,7 @@
         android:visibility="gone"
         android:background="@drawable/roundedbuttonprimary"
         android:gravity="center"
-        android:text="@string/read_card_number"
+        android:hint="@string/read_card_number"
         android:padding="5dp"
         android:textAlignment="viewStart"
         android:textColor="@color/gray"

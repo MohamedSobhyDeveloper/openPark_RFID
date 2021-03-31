@@ -87,8 +87,8 @@ class ReportsActivity : BaseActivity<ActivityReportsBinding>() {
 
             }else{
                 val map = HashMap<String, String?>()
-                map["operator_id"] = it.pk
-                map["user_id"] = PrefsUtil.with(this).get("pk","")
+                map["user_id"] = it.pk
+                map["operator_id"] = PrefsUtil.with(this).get("pk","")
                 viewModelApp!!.redmeWallet(this,map)
             }
 
@@ -107,6 +107,10 @@ class ReportsActivity : BaseActivity<ActivityReportsBinding>() {
     }
 
     private fun click() {
+
+        binding.backBtn.setOnClickListener {
+            finish()
+        }
 
         binding.btnRedeem.setOnClickListener {
             codeDialog()
