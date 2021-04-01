@@ -34,6 +34,7 @@ class ChargeWalletActivity : BaseActivity<ActivityChargeWalletBinding>() {
     private var cardNumber=""
     var nfcAdapter: NfcAdapter? = null
     var pendingIntent: PendingIntent? = null
+    var type=""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -61,8 +62,9 @@ class ChargeWalletActivity : BaseActivity<ActivityChargeWalletBinding>() {
             }else if(amount==""){
                 binding.amountFrid.error=getString(R.string.enter_ammount)
             }else{
+                type="card"
                 val map = HashMap<String, String?>()
-                map["tag_id"] = phone
+                map["tag_id"] = cardNumber
                 viewModelApp!!.makeSearchRfid(this, map)
                 //chargeWalletRfid(cardNumber,amount)
             }
@@ -76,6 +78,7 @@ class ChargeWalletActivity : BaseActivity<ActivityChargeWalletBinding>() {
             }else if(amount==""){
                 binding.amount.error=getString(R.string.enter_ammount)
             }else{
+                type="phone"
                 val map = HashMap<String, String?>()
                 map["mobile_no"] = phone
                 viewModelApp!!.makeSearchPhone(this, map)
@@ -162,14 +165,23 @@ class ChargeWalletActivity : BaseActivity<ActivityChargeWalletBinding>() {
 
             if(it.pk == "-1"){
 
-                Toast.makeText(this,getString(R.string.invalid_phone_number), Toast.LENGTH_SHORT).show()
+                if (type.equals("phone")){
+                    Toast.makeText(this,getString(R.string.invalid_phone_number), Toast.LENGTH_SHORT).show()
 
+                }else{
+                    Toast.makeText(this,getString(R.string.invalid_card), Toast.LENGTH_SHORT).show()
+                }
 
             }else {
 
                 HelpMe.getInstance(this)?.infoDialog(it,object : HelpMe.ViewListenerInterface {
                     override fun clickView() {
-                        chargeWallet(phone,amount)
+                        if (type.equals("phone")){
+                            chargeWallet(phone,amount)
+
+                        }else{
+                            chargeWalletRfid(cardNumber,amount)
+                        }
                     }
 
 

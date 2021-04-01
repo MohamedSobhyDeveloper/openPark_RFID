@@ -72,11 +72,18 @@ class ReportsActivity : BaseActivity<ActivityReportsBinding>() {
 
         viewModelApp = ViewModelProvider(this).get(ViewModelApp::class.java)
         viewModelApp!!.reportslivedata.observe(this) {
-            val layoutManager = LinearLayoutManager(this)
-            binding.recyReports.layoutManager = layoutManager
-            val adapter =
-                ReportsAdapter(this,it)
-            binding.recyReports.adapter = adapter
+            if (it[0].amount.equals("-")){
+          binding.btnRedeem.visibility=View.GONE
+                binding.nodata.visibility=View.VISIBLE
+            }else {
+                binding.btnRedeem.visibility=View.VISIBLE
+                binding.nodata.visibility=View.GONE
+                val layoutManager = LinearLayoutManager(this)
+                binding.recyReports.layoutManager = layoutManager
+                val adapter =
+                        ReportsAdapter(this, it)
+                binding.recyReports.adapter = adapter
+            }
 
         }
 

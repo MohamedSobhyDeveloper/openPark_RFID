@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">openPark</string>
+    <string name="app_name">OpenPark</string>
     <string name="check_connections">Check Internet Connections</string>
     <string name="login">Login</string>
     <string name="password">password</string>
@@ -61,4 +61,6 @@
     <string name="cant_redme_wallet">Cant Redeem Wallet</string>
     <string name="redmee_wallet_successfully">Redeem Wallet Successfully</string>
     <string name="invalid_phone_number">Invalid Phone Number</string>
+    <string name="no_data_found">No Data Found</string>
+    <string name="invalid_card">Invalid Card Number</string>
 </resources>

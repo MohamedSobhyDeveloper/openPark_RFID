@@ -62,4 +62,6 @@
     <string name="cant_redme_wallet">لا يمكن تسوية المحفظة</string>
     <string name="redmee_wallet_successfully">تم تسوية المحفظة بنجاح</string>
     <string name="invalid_phone_number">خطا فى رقم الهاتف</string>
+    <string name="no_data_found">لا توجد معاملات</string>
+    <string name="invalid_card">خطا فى رقم الكارت</string>
 </resources>
